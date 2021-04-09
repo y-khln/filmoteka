@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="style.css">
+ 
+<body>
+  <main>
+    <div id=content>
+      <div class="header"> <!--шапка-->
+          <a class="but" href="index.html"><button>На главную</button></a>
+      </div>
+    </div>
+<!--основная часть-->
+  <div class="container">
+        <div class="zagolovok"><p>Добавление нового фильма</p></div>
+        <div class="serials">
+        <div class="ser__image"><img class="films"></div>
+        <div class="ser__text">
+            <form id="serviceAdding" action="check.php" method="post">
+                <p>Заголовок: <label><input type="text" class="films" id="title" required></label>
+                <p>Страна: <label><input type="text" class="films" id="country" required></label>
+                <p>Жанр: <div>
+                  <select class="films" id="genre" required size='3' value='0'>
+                    <option>Комедия</option>
+                    <option>Драма</option>
+                    <option>Ужасы</option>
+                    <option>Триллер</option>
+                    <option>Приключения</option>
+                    <option>Мелодрама</option>
+                    <option>Мультфильмы</option>
+                    <option>Биография</option>
+                    <option>Фантастика</option>
+                  </select>
+                  </div>
+                <p>Режиссер: <label><input type="text" class="films" id="regisser" required></label>
+                <p>Продюсер: <label><input type="text" class="films" id="producer" required></label>
+                <p>Оператор: <label><input type="text" class="films" id="operator" required></label>
+                <p>Композитор: <label><input type="text" class="films" id="compositor" required></label>
+                <p>Бюджет: <label><input type="text" class="films" id="budget" required></label>
+                <p>Мировые сборы: <label><input type="text" class="films" id="worldCash" required></label>
+                <p>Возрастное ограничение: <label><input type="text" class="films" id="ageRate" required></label>
+                <p>Длительность: <label><input type="text" class="films" id="length" required></label>
+                <p>Дата релиза: <label><input type="date" value="2021-01-04" min="1900-01-01" class="films" id="releaseDate" required></label>
+                <p>Сюжет: <label><input type="text" class="films" id="scenario" required></label>
+                <p>Сюжет: <label><input type="text" class="films" id="poster" required placeholder="Введите URL"></label>
+                <a href="index.html"><input type="submit" id="inputButton" onclick="addFilm()" class="films"></a></button>
+            </form>  
+        </div>
+        </div>
+  </div> 
+  <script src="script (1).js"></script>
+</body>
+</html>

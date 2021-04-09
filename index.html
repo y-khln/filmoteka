@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="style.css">
+ 
+<body>
+  
+  <main>
+  <div id=content>
+  <div class="header"> <!--шапка-->
+      
+      <button id="dele" onclick="showDelete()">Удалить фильм</button>
+      <a class="but" href="adding.html"><button>Добавить фильм</button></a>
+      <div id="deleteBlock">
+        <input type="text" id="delFilm" placeholder="Название фильма">
+        <button id="deletee" onclick="deleteFilm()">Удалить фильм</button>
+    </div>
+  </div>
+<!--основная часть-->
+
+  <div class="container">
+        <div class="zagolovok">
+           <p>Фильмотека</p>
+        </div>
+        <div id="filter">
+          <div class="bor"><p class="howFilter">Сортировать по жанру</p> 
+            <select id="genres" size='3' value='0'>
+              <option>Комедия</option>
+              <option>Драма</option>
+              <option>Ужасы</option>
+              <option>Триллер</option>
+              <option>Приключения</option>
+              <option>Мелодрама</option>
+              <option>Мультфильмы</option>
+              <option>Биография</option>
+              <option>Фантастика</option>
+            </select>
+          </div> 
+          <div class="bor"><p class="howFilter">Год выхода</p><input type="text" id="year" value='0'></div>
+          <div class="bor"><p class="howFilter">Страна</p><input type="text" id="cntry" value='0'></div>
+        </div>
+        <button id="sbtn" onclick="Filter()">Отфильтровать</button>
+      
+        <div id="serials__elem">
+        
+        </div> 
+</main>
+
+  <script src="script (1).js"></script>
+
+</body>
+</html>
