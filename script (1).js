@@ -121,8 +121,8 @@ function addCard(array){
                 let reviewContainer=document.createElement('div');
                 reviewContainer.classList.add('reviewContainer');
                 let form=document.createElement('form');
-                form.action="check.php";
-                form.method="post";
+                //form.action="check.php";
+                //form.method="post";
                 form.classList.add('reviewForm');
                 //поле имя
                 let p1=document.createElement('p');
