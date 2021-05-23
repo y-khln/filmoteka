@@ -29,6 +29,12 @@ let appId = 'eefa82a919e47d2a82e2e0c30b986c01';
 function searchWeather(city){
     let str='https://api.openweathermap.org/data/2.5/weather?q='+city+'&APPID=eefa82a919e47d2a82e2e0c30b986c01';
     console.log(str);
+    var iChars = "0123456789~`!#$%^&*+=-[]\\\';,/{}|\":<>?";
+    for (var i = 0; i < city.length; i++) {
+       if (iChars.indexOf(city.charAt(i)) != -1){
+            alert("Пожалуйста, введите город без цифр и специальных символов");
+       }
+    }
     fetch(str).then(result => {
         return result.json();
     }).then(result => {
