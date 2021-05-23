@@ -26,7 +26,7 @@ let appId = 'eefa82a919e47d2a82e2e0c30b986c01';
 
 //Метод для поиска погоды в конкретном городе
 function searchWeather(city){
-    let str='http://api.openweathermap.org/data/2.5/weather?q='+city+'&APPID=eefa82a919e47d2a82e2e0c30b986c01';
+    let str='https://api.openweathermap.org/data/2.5/weather?q='+city+'&APPID=eefa82a919e47d2a82e2e0c30b986c01';
     console.log(str);
     fetch(str).then(result => {
         return result.json();
