@@ -19,6 +19,83 @@ class Film{
 }
 let service=[]; //массив загруженных фильмов
 
+//-------------API-------------------- 
+
+//ключ API
+let appId = 'eefa82a919e47d2a82e2e0c30b986c01';
+
+//Метод для поиска погоды в конкретном городе
+function searchWeather(city){
+    let str='http://api.openweathermap.org/data/2.5/weather?q='+city+'&APPID=eefa82a919e47d2a82e2e0c30b986c01';
+    console.log(str);
+    fetch(str).then(result => {
+        return result.json();
+    }).then(result => {
+        init(result);
+    })
+}
+//Обработка полученного результата погоды
+function init(resultServer){
+    console.log(resultServer);
+    //Задаем иконку погоды
+    switch(resultServer.weather[0].main){
+        case 'Clear':
+            document.getElementById('apiBlock').style.backgroundImage = 'url("sunny.png")';
+            break;
+
+        case 'Clouds':
+            document.getElementById('apiBlock').style.backgroundImage = 'url("cloudy(1).png")';
+            break;
+
+        case 'Rain':
+        case 'Drizzle':
+            document.getElementById('apiBlock').style.backgroundImage = 'url("rain.png")';
+            break;
+
+        case 'Mist':
+            document.getElementById('apiBlock').style.backgroundImage = 'url("mist.png")';
+            break; 
+
+        case 'Thunderstorm':
+            document.getElementById('apiBlock').style.backgroundImage = 'url("storm.png")';
+            break;
+
+        case 'Snow':
+            document.getElementById('apiBlock').style.backgroundImage = 'url("snow.png")';
+            break;   
+
+        default:
+            break;    
+    }
+
+    let weatherDesc = document.getElementById('description');
+    let temperature = document.getElementById('temperature');
+    let humidity = document.getElementById('humidity');
+    let windSpeed = document.getElementById('windSpeed');
+    let cityHeader = document.getElementById('cityHeader');
+    let weatherIcon = document.getElementById('weatherIcon');
+
+    //Устанавливаем источник иконки погоды и описание
+    weatherIcon.src = 'http://openweathermap.org/img/wn/' + resultServer.weather[0].icon + '.png';
+    let resultDesc = resultServer.weather[0].description;
+    //Первая буква заглавная
+    weatherDesc.innerText = resultDesc.charAt(0).toUpperCase()+resultDesc.slice(1);
+    //Добавление значка градус к температуре
+    temperature.innerHTML = Math.floor(resultServer.main.temp) + '&#176';
+    //
+    windSpeed.innerHTML = 'Winds at ' + Math.floor(resultServer.wind.speed) + ' m/s';
+    cityHeader.innerHTML = resultServer.name;
+    humidity.innerHTML = 'Humidity level at ' + resultServer.main.humidity + '%'
+
+}
+//Вызовем по клику на кнопку "поиск" метод для поиска погоды в введенном городе
+document.getElementById('searchButton').addEventListener('click',()=>{
+    let searchCity = document.getElementById('searchInput').value;
+    if(searchCity) searchWeather(searchCity);
+});
+
+//------------------------------------ 
+
 
 //добавить фильм
 function addFilm(){
